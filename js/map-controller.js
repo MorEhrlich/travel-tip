@@ -24,6 +24,9 @@ window.onload = () => {
         console.log('Aha!', ev.target);
         panTo(35.6895, 139.6917);
     })
+    document.querySelector('#map').addEventListener('click', (ev) => {
+        panTo(ev.latLng.lat(), ev.latLng.lng());
+    })
 }
 
 
@@ -34,9 +37,9 @@ export function initMap(lat = 32.0749831, lng = 34.9120554) {
             console.log('google available');
             gGoogleMap = new google.maps.Map(
                 document.querySelector('#map'), {
-                    center: { lat, lng },
-                    zoom: 15
-                })
+                center: { lat, lng },
+                zoom: 15
+            })
             console.log('Map!', gGoogleMap);
         })
 }
@@ -76,3 +79,50 @@ function _connectGoogleApi() {
         elGoogleApi.onerror = () => reject('Google script failed to load')
     })
 }
+
+
+// function onGoToPlace() {
+//     var elMap = document.querySelector('#map')
+//     elMap.addEventListener('click', function (ev) {
+//         console.log('Map clicked', ev.latLng.lat(), ev.latLng.lng());
+//         var place = {
+//             lat: ev.latLng.lat(),
+//             lng: ev.latLng.lng()
+//         }
+//         panTo(place.lat,place.lng);    
+//     });
+
+// }
+
+// onGoToPlace() 
+// mapView()
+
+// function mapView() {
+//     const myLatlng = { lat: -25.363, lng: 131.044 };
+//     const map = new google.maps.Map(document.querySelector("#map"), {
+//       zoom: 4,
+//       center: myLatlng,
+//     });
+//     // Create the initial InfoWindow.
+//     let infoWindow = new google.maps.InfoWindow({
+//       content: "Click the map to get Lat/Lng!",
+//       position: myLatlng,
+//     });
+//     infoWindow.open(map);
+//     // Configure the click listener.
+//     map.addListener("click", (mapsMouseEvent) => {
+//       // Close the current InfoWindow.
+//       infoWindow.close();
+//       // Create a new InfoWindow.
+//       infoWindow = new google.maps.InfoWindow({
+//         position: mapsMouseEvent.latLng,
+//       });
+//       infoWindow.setContent(
+//         JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+//       );
+//       infoWindow.open(map);
+//     });
+//   }
+
+
+
