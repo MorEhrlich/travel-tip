@@ -24,6 +24,9 @@ window.onload = () => {
         console.log('Aha!', ev.target);
         panTo(35.6895, 139.6917);
     })
+
+    locationService.getLocations()
+        .then(locations => renderLocations(locations));
 }
 
 
@@ -75,4 +78,22 @@ function _connectGoogleApi() {
         elGoogleApi.onload = resolve;
         elGoogleApi.onerror = () => reject('Google script failed to load')
     })
+}
+
+
+/* map */
+
+
+function renderLocations(locations) {
+    const strHtmls = locations.map((location, idx) => {
+        return `
+                <tr>
+                    <td>${idx + 1}</td>
+                    <td>${location.name}</td>
+                    <td>${location.lat}</td>
+                    <td>${location.lng}</td>
+                </tr>
+            `
+    })
+    document.querySelector('.locations-table').innerHTML = strHtmls.join('');
 }
