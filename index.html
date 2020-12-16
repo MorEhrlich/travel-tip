@@ -10,33 +10,45 @@
 
 <body>
     <div class="travel-tip-container">
-
-        <h1>Travel Tip</h1>
-        <input type="text" placeholder="Enter Location" class="input-enter-location">
-        <button class="go-btn">GO</button>
-        <button class="my-location-btn">My location</button>
-        <section class="weather-con">
-
+        <header class="main-top-con">
+            <h1>TravelTip</h1>
+            <div class="top-con">
+                <input type="text" placeholder="Enter Location" class="input-enter-location">
+                <button class="go-btn">GO</button>
+                <button class="my-location-btn">My location</button>
+            </div>
+        </header>
+        <section class="middle-con">
+            <div class="location-title"> <strong>Location:</strong> Central Park, New York </div> <button
+                class="copy-btn">Copy Location</button>
         </section>
-        <table border="1" class="locations-table">
-            <thead>
-                <tr>
-                    <td>Id</td>
-                    <td>Place Name</td>
-                    <td>latitude</td>
-                    <td>longitude</td>
-                    <td>Go There</td>
-                    <td>Delete</td> 
-                </tr>
-            </thead>
-            <tbody class="locations-table-body">
+        <div class="main-content">
+            <div class="seconed-content">
+                <section class="weather-con">
+                    <h3>Weather Today</h3>
+                </section>
+                <table border="1" class="locations-table">
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Place Name</td>
+                            <td>latitude</td>
+                            <td>longitude</td>
+                            <td>Go There</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody class="locations-table-body">
 
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+                <button class="btn">Click Me</button>
+            </div>
+            <div id="map" style="width: 650px; height: 350px;" class="map"></div>
+        </div>
 
-        <div id="map" style="width: 100%; height: 400px;"></div>
-        <button class="btn">Click Me</button>
     </div>
+
 
     <script type="module" src="js/map-controller.js"></script>
 </body>

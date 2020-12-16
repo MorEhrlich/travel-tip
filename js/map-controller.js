@@ -96,7 +96,7 @@ function renderLocations(locations) {
                         <td>${location.name}</td>
                         <td>${location.lat}</td>
                         <td>${location.lng}</td>
-                        <td><button class="go-btn">Go</button></td>
+                        <td><button class="go-table-btn">Go</button></td>
                         <td><button class="delete-btn">Delete</button></td>
                     </tr>
                 `
@@ -124,28 +124,28 @@ function setCurrentPosition(position) {
     initMap(position.coords.latitude, position.coords.longitude);
 }
 
-addClickedLocation()
+// addClickedLocation()
 
 /* get current click position */
 
-function addClickedLocation() {
-    gGoogleMap.addEventListener('click', (ev) => {
-        console.log('Map clicked', ev);
-        const locationName = prompt('What is the location name?')
-        console.log('Map clicked', locationName, ev.latLng.lat(), ev.latLng.lng());
-        var location = {
-            name: locationName,
-            lat: ev.latLng.lat(),
-            lng: ev.latLng.lng()
-        }
-        locationService.gLocations.push(location);
-        renderLocations();
-    });
-}
+// function addClickedLocation() {
+//     gGoogleMap.addEventListener('click', (ev) => {
+//         console.log('Map clicked', ev);
+//         const locationName = prompt('What is the location name?')
+//         console.log('Map clicked', locationName, ev.latLng.lat(), ev.latLng.lng());
+//         var location = {
+//             name: locationName,
+//             lat: ev.latLng.lat(),
+//             lng: ev.latLng.lng()
+//         }
+//         locationService.gLocations.push(location);
+//         renderLocations();
+//     });
+// }
 
 /* go button */
 
-// const elGo = document.querySelector('.go-btn');
+// const elGo = document.querySelector('.go-table-btn');
 // elGo.addEventListener('click', onGoToPlace(`${location.lat} , ${location.lng}`));
 
 // function onGoToPlace(lat, lng) {
@@ -161,3 +161,4 @@ function addClickedLocation() {
 //     locationService.deleteLocation(locationName);
 //     renderLocations()
 // }
+

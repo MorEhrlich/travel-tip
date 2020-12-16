@@ -2,13 +2,138 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: lightsalmon;
+@font-face {
+    font-family: poppins;
+    src: url(../fonts/Poppins/Poppins-Regular.ttf);
 }
+
+body {
+    background-color: lightsalmon;
+    font-family: poppins;
+}
+
 h1 {
     margin: 0 auto;
-    text-align: center;
+    font-size: 50px;
+    position: relative;
+    right: 150px;
+    line-height: 80px;
+    font-family: poppins;
 }
+
+h3 {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    font-family: poppins;
+}
+
+header {
+    width: 100%;
+}
+
+button {
+    color: white;
+    background-color: rgb(141, 141, 141);
+    box-shadow: none;
+    border: 1px solid navy;
+    font-family: poppins;
+}
+
+.travel-tip-container {
+ 
+    flex-flow: column wrap;
+}
+
+.main-top-con {
+    display: flex;
+}
+
+.top-con {
+    display: flex;
+    position: relative;
+    top: 20px;
+    right: 10px;
+    height: 50px;
+    right: 30px;
+   
+}
+
+.input-enter-location {
+    background-color: rgb(223, 210, 210);
+    border: 1px solid navy;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.go-btn {
+    position: relative;
+    right: 20px;
+    width: 100px;
+    font-size: 20px;
+}
+
+.my-location-btn {
+    width: 200px;
+    font-size: 20px;
+}
+
+.location-title {
+    position: relative;
+    left: 30px;
+    font-size: 30px;
+    line-height: 40px;
+   
+}
+
+.copy-btn {
+    width: 200px;
+    font-size: 20px;
+    position: relative;
+    right: 10px;
+    height: 50px;
+}
+
+.middle-con {
+    top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    right: 20px;
+   
+}
+
+.main-content {
+    position: relative;
+    top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.seconed-content {
+    position: relative;
+    left: 30px;
+}
+
+.weather-con {
+    background-color: rgb(244, 245, 247);
+    height: 200px;
+    width: 450px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.locations-table{
+    margin-bottom: 20px;
+}
+.map {
+    position: relative;
+    right: 30px;
+}
+
 
 /* Flex Helpers */
 
