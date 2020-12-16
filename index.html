@@ -10,10 +10,30 @@
 
 <body>
     <div class="travel-tip-container">
-        <h1>Travel Trip</h1>
-        <table class="locations-table">
 
+        <h1>Travel Tip</h1>
+        <input type="text" placeholder="Enter Location" class="input-enter-location">
+        <button class="go-btn">GO</button>
+        <button class="my-location-btn">My location</button>
+        <section class="weather-con">
+
+        </section>
+        <table border="1" class="locations-table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Place Name</td>
+                    <td>latitude</td>
+                    <td>longitude</td>
+                    <!-- <td>Go</td>
+                    <td>Delete</td> -->
+                </tr>
+            </thead>
+            <tbody class="locations-table-body">
+
+            </tbody>
         </table>
+
         <div id="map" style="width: 100%; height: 400px;"></div>
         <button class="btn">Click Me</button>
     </div>

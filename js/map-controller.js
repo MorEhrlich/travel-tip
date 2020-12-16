@@ -143,5 +143,5 @@ function renderLocations(locations) {
                 </tr>
             `
     })
-    document.querySelector('.locations-table').innerHTML = strHtmls.join('');
+    document.querySelector('.locations-table-body').innerHTML = strHtmls.join('');
 }

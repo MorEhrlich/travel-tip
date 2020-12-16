@@ -1,8 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: lightsalmon;
+}
 h1 {
     margin: 0 auto;
     text-align: center;
 }
-
 
 /* Flex Helpers */
 
@@ -25,7 +31,6 @@ h1 {
 .wrap {
     flex-wrap: wrap;
 }
-
 
 /* Grid Helpers */
 
