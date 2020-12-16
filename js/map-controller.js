@@ -24,11 +24,11 @@ window.onload = () => {
         console.log('Aha!', ev.target);
         panTo(35.6895, 139.6917);
     })
-    const elDelete = document.querySelector('.delete-btn');
-    elDelete.addEventListener('click', onDelete);
 
-    locationService.getLocations()
-        .then(locations => renderLocations(locations));
+    locationService.getLocations().then(function (locations) {
+        renderLocations(locations) }
+    );
+   
 }
 
 
@@ -87,24 +87,76 @@ function _connectGoogleApi() {
 
 
 function renderLocations(locations) {
-    const strHtmls = locations.map((location, idx) => {
-        return `
-                <tr>
-                    <td>${idx + 1}</td>
-                    <td>${location.name}</td>
-                    <td>${location.lat}</td>
-                    <td>${location.lng}</td>
-                    <td><button>Go</button></td>
-                    <td><button class="delete-btn">Delete</button></td>
-                </tr>
-            `
-    })
-    document.querySelector('.locations-table-body').innerHTML = strHtmls.join('');
+    if (locations) {
+        const strHtmls = locations.map((location, idx) => {
+            return `
+                    <tr>
+                        <td>${idx + 1}</td>
+                        <td>${location.name}</td>
+                        <td>${location.lat}</td>
+                        <td>${location.lng}</td>
+                        <td><button class="go-btn">Go</button></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                `
+        })
+        document.querySelector('.locations-table-body').innerHTML = strHtmls.join('');
+    }
+
 }
 
+
+/* get current position */
+
+const eCurrlPos = document.querySelector('.my-location-btn');
+eCurrlPos.addEventListener('click', getPosition);
+
+function getPosition() {
+    if (!navigator.geolocation) {
+        alert("HTML5 Geolocation is not supported in your browser.");
+        return;
+    }
+    navigator.geolocation.getCurrentPosition(setCurrentPosition);
+}
+
+function setCurrentPosition(position) {
+    initMap(position.coords.latitude, position.coords.longitude);
+}
+
+addClickedLocation()
+
+/* get current click position */
+
+function addClickedLocation() {
+    gGoogleMap.addEventListener('click', (ev) => {
+        console.log('Map clicked', ev);
+        const locationName = prompt('What is the location name?')
+        console.log('Map clicked', locationName, ev.latLng.lat(), ev.latLng.lng());
+        var location = {
+            name: locationName,
+            lat: ev.latLng.lat(),
+            lng: ev.latLng.lng()
+        }
+        locationService.gLocations.push(location);
+        renderLocations();
+    });
+}
+
+/* go button */
+
+// const elGo = document.querySelector('.go-btn');
+// elGo.addEventListener('click', onGoToPlace(`${location.lat} , ${location.lng}`));
+
+// function onGoToPlace(lat, lng) {
+//     initMap(lat, lng);
+// }
 
 /* delete button */
-function onDelete(locationName){
-    locationService.deleteLocation(locationName);
-    renderLocations()
-}
+
+// const elDelete = document.querySelector('.delete-btn');
+// elDelete.addEventListener('click', onDelete(`${location.name}`));
+
+// function onDelete(locationName) {
+//     locationService.deleteLocation(locationName);
+//     renderLocations()
+// }

@@ -8,16 +8,20 @@ export const locationService = {
 }
 
 const KEY = 'locationsDB';
-const gLocations = [{ lat: 17, lng: 19, name: 'Puki Home' }];
+const gLocations = [{ lat: 17, lng: 19, name: 'Puki Home', weather: 'sunny'}];
 
 function getLocations() {
     return Promise.resolve(gLocations)
     .then(locations => {
-        utilService.saveToStorage('locationsDB', locations)
-        gLocations = locations;
+        utilService.saveToStorage('locationsDB', locations);
         return locations;
     })
+    .catch((err) => { 
+        console.log('Had issues:', err)
+     })
 }
+
+
 
 function deleteLocation(locationName) {
     var LocationIdx = gLocations.findIndex((location) => {
