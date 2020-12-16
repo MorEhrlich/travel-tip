@@ -24,9 +24,12 @@ window.onload = () => {
         console.log('Aha!', ev.target);
         panTo(35.6895, 139.6917);
     })
-    document.querySelector('#map').addEventListener('click', (ev) => {
-        panTo(ev.latLng.lat(), ev.latLng.lng());
-    })
+    // document.querySelector('#map').addEventListener('click', (ev) => {
+    //     panTo(ev.latLng.lat(), ev.latLng.lng());
+    // })
+
+    locationService.getLocations()
+        .then(locations => renderLocations(locations));
 }
 
 
@@ -126,3 +129,19 @@ function _connectGoogleApi() {
 
 
 
+/* map */
+
+
+function renderLocations(locations) {
+    const strHtmls = locations.map((location, idx) => {
+        return `
+                <tr>
+                    <td>${idx + 1}</td>
+                    <td>${location.name}</td>
+                    <td>${location.lat}</td>
+                    <td>${location.lng}</td>
+                </tr>
+            `
+    })
+    document.querySelector('.locations-table').innerHTML = strHtmls.join('');
+}

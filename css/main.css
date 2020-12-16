@@ -2,3 +2,33 @@ h1 {
     margin: 0 auto;
     text-align: center;
 }
+
+
+/* Flex Helpers */
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+
+/* Grid Helpers */
+
+.grid {
+    display: grid;
+}
