@@ -24,6 +24,8 @@ window.onload = () => {
         console.log('Aha!', ev.target);
         panTo(35.6895, 139.6917);
     })
+    const elDelete = document.querySelector('.delete-btn');
+    elDelete.addEventListener('click', onDelete);
 
     locationService.getLocations()
         .then(locations => renderLocations(locations));
@@ -37,9 +39,9 @@ export function initMap(lat = 32.0749831, lng = 34.9120554) {
             console.log('google available');
             gGoogleMap = new google.maps.Map(
                 document.querySelector('#map'), {
-                    center: { lat, lng },
-                    zoom: 15
-                })
+                center: { lat, lng },
+                zoom: 15
+            })
             console.log('Map!', gGoogleMap);
         })
 }
@@ -92,8 +94,16 @@ function renderLocations(locations) {
                     <td>${location.name}</td>
                     <td>${location.lat}</td>
                     <td>${location.lng}</td>
+                    <td><button>Go</button></td>
+                    <td><button class="delete-btn">Delete</button></td>
                 </tr>
             `
     })
     document.querySelector('.locations-table-body').innerHTML = strHtmls.join('');
+}
+
+
+function onDelete(locationName){
+    locationService.deleteLocation(locationName);
+    renderLocations()
 }
