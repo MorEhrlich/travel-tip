@@ -1,5 +1,4 @@
-
-import {locationService} from './services/location-service.js'
+import { locationService } from './services/location-service.js'
 
 
 console.log('locationService', locationService);
@@ -35,9 +34,9 @@ export function initMap(lat = 32.0749831, lng = 34.9120554) {
             console.log('google available');
             gGoogleMap = new google.maps.Map(
                 document.querySelector('#map'), {
-                center: { lat, lng },
-                zoom: 15
-            })
+                    center: { lat, lng },
+                    zoom: 15
+                })
             console.log('Map!', gGoogleMap);
         })
 }
@@ -77,6 +76,3 @@ function _connectGoogleApi() {
         elGoogleApi.onerror = () => reject('Google script failed to load')
     })
 }
-
-
-
