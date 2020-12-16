@@ -1,4 +1,5 @@
 import { locationService } from './services/location-service.js'
+import { weatherService } from './services/weather-service.js'
 
 
 console.log('locationService', locationService);
