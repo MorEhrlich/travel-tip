@@ -103,6 +103,7 @@ function renderLocations(locations) {
 }
 
 
+/* delete button */
 function onDelete(locationName){
     locationService.deleteLocation(locationName);
     renderLocations()

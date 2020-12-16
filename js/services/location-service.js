@@ -7,11 +7,16 @@ export const locationService = {
     deleteLocation
 }
 
-const KEY = 'locationDB';
+const KEY = 'locationsDB';
 const gLocations = [{ lat: 17, lng: 19, name: 'Puki Home' }];
 
 function getLocations() {
     return Promise.resolve(gLocations)
+    .then(locations => {
+        utilService.saveToStorage('locationsDB', locations)
+        gLocations = locations;
+        return locations;
+    })
 }
 
 function deleteLocation(locationName) {
